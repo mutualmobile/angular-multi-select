@@ -544,7 +544,7 @@ angular.module( 'isteven-multi-select', ['ng'] ).directive( 'istevenMultiSelect'
                     });                
 
                     if ( $scope.more === true ) {                     
-                        $scope.varButtonLabel = '(' + $scope.selectedItems.length + ' of ' + $scope.inputModel.length + ')';
+                        $scope.varButtonLabel = $scope.outputModel.length + ' of ' + $scope.inputModel.length + ' ' + $scope.lang.plural;
                     }
                 }
                 $scope.varButtonLabel = $sce.trustAsHtml( $scope.varButtonLabel + '<span class="caret"></span>' );                
@@ -901,14 +901,16 @@ angular.module( 'isteven-multi-select', ['ng'] ).directive( 'istevenMultiSelect'
                 $scope.lang.selectNone      = $sce.trustAsHtml( icon.selectNone + '&nbsp;&nbsp;' + $scope.translation.selectNone );
                 $scope.lang.reset           = $sce.trustAsHtml( icon.reset      + '&nbsp;&nbsp;' + $scope.translation.reset );
                 $scope.lang.search          = $scope.translation.search;                
-                $scope.lang.nothingSelected = $sce.trustAsHtml( $scope.translation.nothingSelected );                
+                $scope.lang.nothingSelected = $sce.trustAsHtml( $scope.translation.nothingSelected );
+                $scope.lang.plural          = $scope.translation.plural;
             }
             else {
                 $scope.lang.selectAll       = $sce.trustAsHtml( icon.selectAll  + '&nbsp;&nbsp;Select All' );                
                 $scope.lang.selectNone      = $sce.trustAsHtml( icon.selectNone + '&nbsp;&nbsp;Select None' );
                 $scope.lang.reset           = $sce.trustAsHtml( icon.reset      + '&nbsp;&nbsp;Reset' );
                 $scope.lang.search          = 'Search...';
-                $scope.lang.nothingSelected = 'None Selected';                
+                $scope.lang.nothingSelected = 'None Selected';
+                $scope.lang.plural          = '';
             }
                 
             // min length of keyword to trigger the filter function
