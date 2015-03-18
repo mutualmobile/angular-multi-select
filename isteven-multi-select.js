@@ -543,12 +543,8 @@ angular.module( 'isteven-multi-select', ['ng'] ).directive( 'istevenMultiSelect'
                         }
                     });                
 
-                    if ( $scope.more === true ) {
-                        // https://github.com/isteven/angular-multi-select/pull/16
-                        if (tempMaxLabels > 0) {
-                            $scope.varButtonLabel += ', ... ';
-                        }
-                        $scope.varButtonLabel += '(' + $scope.outputModel.length + ')';                        
+                    if ( $scope.more === true ) {                     
+                        $scope.varButtonLabel = '(' + $scope.selectedItems.length + ' of ' + $scope.inputModel.length + ')';
                     }
                 }
                 $scope.varButtonLabel = $sce.trustAsHtml( $scope.varButtonLabel + '<span class="caret"></span>' );                
